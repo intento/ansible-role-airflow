@@ -45,7 +45,7 @@ airflow_packages:
   - name: 'Cython'
     version: '0.28.2'
   - name: 'apache-airflow'
-    version: '1.9.0'
+    version: '1.10.3'
 airflow_extra_packages:
   - name: 'apache-airflow[crypto]'
 
@@ -66,7 +66,6 @@ airflow_services_systemd:
       Install:
         WantedBy: 'multi-user.target'
       Service:
-        Environment: "PATH={{ airflow_virtualenv ~ '/bin' }}"
         EnvironmentFile: "{{ airflow_paths.files.environment.path }}"
         ExecStart: "{{ airflow_virtualenv ~ '/bin' }}/airflow webserver"
         Group: "{{ airflow_user_group }}"
